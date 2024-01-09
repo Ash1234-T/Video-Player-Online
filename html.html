@@ -1,0 +1,116 @@
+<html>
+<head>
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #639EDB, #0668CF) no-repeat;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: black;
+      text-align: center;
+    }
+
+    #container {
+      width: 85%;
+      margin: auto;
+      padding: 20px;
+      background: color: #639EDB; 
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #input {
+      width: 70%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    #button {
+      width: 20%;
+      padding: 10px;
+      background-color: blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #video {
+      width: 100%;
+      height: 80%;
+      margin-top: 20px;
+    }
+
+#button {
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+  </style>
+</head>
+<body>
+  <h1>HTML Video Player</h1>
+  <div id="container">
+    <!-- Create a form to collect the video link -->
+    <form id="form">
+      <input id="input" type="url" placeholder="Enter a video link, No Youtube Yet" required>
+      <button id="button" type="submit">Play</button>
+    </form>
+    <!-- Create a video element to play the video -->
+    <video id="video" controls></video>
+  </div>
+  <script>
+    // Get the form, input, button, and video elements
+    var form = document.getElementById("form");
+    var input = document.getElementById("input");
+    var button = document.getElementById("button");
+    var video = document.getElementById("video");
+
+    // Add an event listener to the form submission
+    form.addEventListener("submit", function(event) {
+      // Prevent the default form action
+      event.preventDefault();
+      // Get the video link from the input value
+      var link = input.value;
+      // Check if the link is valid
+      if (link) {
+        // Set the video source to the link
+        video.src = link;
+        // Load and play the video
+        video.load();
+        video.play();
+        // Clear the input value
+        input.value = "";
+      } else {
+        // Alert the user to enter a valid link
+        alert("Please enter a valid video link");
+      }
+    });
+  </script>
+</body>
+</html>
